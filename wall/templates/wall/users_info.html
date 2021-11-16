@@ -1,0 +1,45 @@
+{% extends 'wall/base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <!-- Page Header Start -->
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Users' Info</h2>
+                    </div>
+                    <div class="col-12">
+                        <a href="{% url 'index' %}">Home</a>
+                        <a href="{% url 'user_profile' id=user.id %}">Personal Area</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+        
+        
+        {% for detail in details %}
+
+        <div class="row">
+            <div class="col-lg-7 col-md-12">
+                <div class="menu-item">
+
+                    <div class="menu-text">
+                        <h3><span>User: {{detail.0}}<br></span> <strong>Number of posts: {{detail.1}}</strong></h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <div class="container">
+            <div class="section-header text-center">
+                <h4>No users' post so far....</h4>
+            </div>
+        </div>
+        {% endfor %}
+
+{% endblock %}

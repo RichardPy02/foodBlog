@@ -1,0 +1,104 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block content %}
+        <!-- Page Header Start -->
+        <div class="page-header mb-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Join Our Community</h2>
+                    </div>
+                    <div class="col-12">
+                        <a href="{% url 'index'%}">Home</a>
+                        <a href="{% url 'register' %}">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+        {% include 'accounts/messages.html' %}
+
+        <!-- Form Start -->
+        <div class="booking">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="booking-content">
+                            <div class="section-header">
+                                <p>Join Our Community</p>
+                                <h2>Just Fill In this Form</h2>
+                            </div>
+                            <div class="about-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. Aliquam interdum at lacus non blandit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="booking-form">
+                            <form action="register" method="post">
+                                {% csrf_token %}
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="first_name" placeholder="First Name" required="required" />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="far fa-user"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required" />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="far fa-user"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="username" placeholder="Username" required="required" />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="far fa-user"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required="required" />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="far fa-envelope"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="password1" placeholder="Password" required="required" />
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="password2" placeholder="Confirm password" required="required" />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button class="btn custom-btn" type="submit">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Form End -->
+
+{% endblock %}
