@@ -25,7 +25,6 @@ def index(request):
                         break
                     else:
                         break
-
         logFile.close()
 
     return render(request, 'accounts/index.html')
