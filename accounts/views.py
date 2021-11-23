@@ -17,13 +17,15 @@ def index(request):
         ip = ipDict['ip_address']
         for log in logs[::-1]:
             attributes = log.split()
-            if attributes[4] == username:
-                if attributes[6] != ip:
-                    print(f"WARNING: {username}'s IP ADDRESS CHANGED")
-                    messages.warning(request, 'Warning: your IP address has changed from last time')
-                    break
-                else:
-                    break
+            if attributes:
+                if attributes[4] == username:
+                    if attributes[6] != ip:
+                        print(f"WARNING: {username}'s IP ADDRESS CHANGED")
+                        messages.warning(request, 'Warning: your IP address has changed from last time')
+                        break
+                    else:
+                        break
+
         logFile.close()
 
     return render(request, 'accounts/index.html')
