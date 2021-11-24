@@ -1,20 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from .utils import get_client_ip, ipLogger
+from .utils import get_client_ip, ip_logger
 
 
 def index(request):
 
-    currentUser = request.user
-    if currentUser.is_authenticated:
-        ipDict = {'ip_address': str(get_client_ip(request))}
-        ipLogger(ipDict, str(request.user))
-        logFile = open('./logs/ipAddressUsers.log', 'r')
-        logs = logFile.readlines()
+    current_user = request.user
+    if current_user.is_authenticated:
+        ip_dict = {'ip_address': str(get_client_ip(request))}
+        ip_logger(ip_dict, str(request.user))
+        log_file = open('./logs/ipAddressUsers.log', 'r')
+        logs = log_file.readlines()
         logs = logs[:-1]
         username = str(request.user)
-        ip = ipDict['ip_address']
+        ip = ip_dict['ip_address']
         for log in logs[::-1]:
             attributes = log.split()
             if attributes:
@@ -25,7 +25,7 @@ def index(request):
                         break
                     else:
                         break
-        logFile.close()
+        log_file.close()
 
     return render(request, 'accounts/index.html')
 
