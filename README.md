@@ -11,7 +11,7 @@
   <p align="center">
     A Django project developing a food blog whose posts content are stored in blockchain (testnet)
     <br/>
-    <a href="https://github.com/RichardPy02/bacheca/README"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/RichardPy02/bacheca/README.md"><strong>Explore the docs »</strong></a>
   </p>
 </div>
 
@@ -35,11 +35,8 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -93,7 +90,7 @@ This project assumes you have already installed Python (at least 3.9.9 version) 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-_Once you set your environment, to run the server locally you just need to run on your command prompt "python manage.py runserver" and go to http://127.0.0.1:8000/
+Once you set your environment, to run the server locally you just need to run on your command prompt "python manage.py runserver" and go to http://127.0.0.1:8000/
 on your browser. I hope you enjoy it ;).
 
 
@@ -117,7 +114,7 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 Riccardo 
-Persona email address: riccardomagni00@gmail.com
+Personal email address: riccardomagni00@gmail.com
 
 Project Link: [https://github.com/RichardPy02/bacheca](https://github.com/RichardPy02/bacheca/)
 
