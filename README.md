@@ -11,7 +11,7 @@
   <p align="center">
     A Django project developing a food blog whose posts content are stored in blockchain (testnet)
     <br/>
-    <a href="https://github.com/RichardPy02/bacheca/README.md"><strong>Explore the docs »</strong></a>
+    <a href="http://riccardo02.pythonanywhere.com/"><strong>Visit the website »</strong></a>
   </p>
 </div>
 
@@ -45,7 +45,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![alt home page image](https://github.com/RichardPy02/bacheca/tree/master/assets/img/home_page.png)
+![assets/img/home_page.png]
 
 This project, realized for educational puroposes, regards building a blog by using a web framework (in this case [Django](https://www.djangoproject.com/)).
 
@@ -113,7 +113,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Riccardo 
+Riccardo, 
 Personal email address: riccardomagni00@gmail.com
 
 Project Link: [https://github.com/RichardPy02/bacheca](https://github.com/RichardPy02/bacheca/)
