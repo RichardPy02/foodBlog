@@ -45,7 +45,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![assets/img/home_page.png]
+![Home Page image](https://github.com/RichardPy02/bacheca/blob/master/assets/img/home_page.png)
 
 This project, realized for educational puroposes, regards building a blog by using a web framework (in this case [Django](https://www.djangoproject.com/)).
 
