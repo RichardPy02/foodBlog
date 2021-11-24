@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='post',
-            name='txId',
+            name='tx_id',
             field=models.CharField(default=None, max_length=66, null=True),
         ),
     ]

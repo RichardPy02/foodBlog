@@ -6,7 +6,7 @@ from django.utils import timezone
 from datetime import timedelta
 from .models import Post
 from .forms import PostForm
-from .utils import checkForWord
+from .utils import check_for_word
 
 def posts(request):
     '''
@@ -44,16 +44,16 @@ def post_new(request):
 
             form = PostForm(request.POST, request.FILES)
 
-            if form.is_valid() and not checkForWord(form, "hack"):
+            if form.is_valid() and not check_for_word(form, "hack"):
                 post = form.save(commit=False)
                 post.author = request.user
                 post.published_date = timezone.now()
-                post.writeOnChain()
+                post.write_on_chain()
                 post.save()
                 return redirect('post_detail', pk=post.pk)
 
             else:
-                if checkForWord(form, "hack") == True:
+                if check_for_word(form, "hack") == True:
                     messages.info(request, '\"hack\" word in posts is not allowed!!!')
                 return render(request, 'wall/post_edit.html', {'form': form})
 
@@ -84,17 +84,17 @@ def post_edit(request, pk):
         if request.user.id == post.author_id:
             if request.method == 'POST':
                 form = PostForm(request.POST, instance=post)
-                if form.is_valid() and not checkForWord(form, "hack"):
+                if form.is_valid() and not check_for_word(form, "hack"):
                     post = form.save(commit=False)
                     post.author = request.user
                     post.published_date = timezone.now()
-                    post.writeOnChain()
+                    post.write_on_chain()
                     post.save()
                     return redirect('post_detail', pk=post.pk)
 
                 else:
 
-                    if checkForWord(form, "hack") == True:
+                    if check_for_word(form, "hack") == True:
                         messages.info(request, '\"hack\" word in posts is not allowed!!!')
                     return render(request, 'wall/post_edit.html', {'form': form})
             else:
@@ -142,7 +142,7 @@ def users_info(request):
         messages.info(request, 'You don\'t have necessary permissions to see this page')
         return redirect('login')
 
-def jsonResponse(request):
+def json_response(request):
 
     this_hour = timezone.now().replace(minute=0, second=0, microsecond=0)
     one_hour_later = this_hour + timedelta(hours=1)
@@ -159,12 +159,12 @@ def jsonResponse(request):
                 'description' : post.description,
                 'content' : post.content,
                 'hash' : post.hash,
-                'txId' : post.txId,
+                'tx_id' : post.tx_id,
             })
 
     return JsonResponse(response, safe=False)
 
-def stringResponse(request, response): #url "string_value"
+def string_response(request, response): #url "string_value"
 
     stringa = str(response)
     posts = Post.objects.all()

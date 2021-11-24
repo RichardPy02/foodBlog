@@ -9,6 +9,6 @@ urlpatterns = [
     path('admin/users/info', views.users_info, name='users_info'),
     path('post/<int:pk>/edit', views.post_edit, name='post_edit'),
     path('post/<int:pk>/delete', views.post_delete, name='post_delete'),
-    path('json/response', views.jsonResponse),
-    path('string <response>', views.stringResponse)
+    path('json/response', views.json_response),
+    path('string <response>', views.string_response)
 ]
