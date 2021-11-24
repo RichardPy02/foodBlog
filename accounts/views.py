@@ -5,7 +5,6 @@ from .utils import get_client_ip, ip_logger
 
 
 def index(request):
-
     current_user = request.user
     if current_user.is_authenticated:
         ip_dict = {'ip_address': str(get_client_ip(request))}
@@ -29,8 +28,8 @@ def index(request):
 
     return render(request, 'accounts/index.html')
 
-def register(request):
 
+def register(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -49,7 +48,8 @@ def register(request):
                 return redirect('register')
 
             else:
-                user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name,
+                user = User.objects.create_user(username=username, password=password1, email=email,
+                                                first_name=first_name,
                                                 last_name=last_name)
                 user.save()
                 messages.success(request, 'Your account has been created successfully!')
@@ -62,8 +62,8 @@ def register(request):
     else:
         return render(request, 'accounts/register.html')
 
-def login(request):
 
+def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -77,6 +77,7 @@ def login(request):
 
     else:
         return render(request, 'accounts/login.html')
+
 
 def logout(request):
     auth.logout(request)

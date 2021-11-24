@@ -8,22 +8,23 @@ from .models import Post
 from .forms import PostForm
 from .utils import check_for_word
 
+
 def posts(request):
-    '''
+    """
     view for list of posts
-    '''
+    """
     user = request.user
     if user.is_authenticated:
 
         posts = Post.objects.filter().order_by('-published_date')
 
-        return render(request, 'wall/posts.html', {'posts' : posts})
+        return render(request, 'wall/posts.html', {'posts': posts})
     else:
         messages.warning(request, 'You must be logged in to see that page')
         return redirect('login')
 
-def post_detail(request, pk):
 
+def post_detail(request, pk):
     user = request.user
     if user.is_authenticated:
 
@@ -35,8 +36,8 @@ def post_detail(request, pk):
         messages.warning(request, 'You must be logged in to see that page')
         return redirect('login')
 
-def post_new(request):
 
+def post_new(request):
     user = request.user
     if user.is_authenticated:
 
@@ -64,6 +65,7 @@ def post_new(request):
         messages.warning(request, 'You must be logged in to see that page')
         return redirect('login')
 
+
 def user_profile(request, id):
     user = request.user
     if user.is_authenticated:
@@ -77,8 +79,8 @@ def user_profile(request, id):
         messages.info(request, 'You must be logged in to see that page')
         return redirect('login')
 
-def post_edit(request, pk):
 
+def post_edit(request, pk):
     if request.user.is_authenticated:
         post = get_object_or_404(Post, pk=pk)
         if request.user.id == post.author_id:
@@ -94,12 +96,12 @@ def post_edit(request, pk):
 
                 else:
 
-                    if check_for_word(form, "hack") == True:
+                    if check_for_word(form, "hack"):
                         messages.info(request, '\"hack\" word in posts is not allowed!!!')
                     return render(request, 'wall/post_edit.html', {'form': form})
             else:
                 form = PostForm(instance=post)
-                return render(request, 'wall/post_edit.html',{'form' : form })
+                return render(request, 'wall/post_edit.html', {'form': form})
         else:
             messages.warning(request, 'You cannot access other users\' profile')
             return redirect('index')
@@ -107,8 +109,8 @@ def post_edit(request, pk):
         messages.info(request, 'You must be logged in to see that page')
         return redirect('login')
 
-def post_delete(request, pk):
 
+def post_delete(request, pk):
     if request.user.is_authenticated:
         post = get_object_or_404(Post, pk=pk)
         if request.user.id == post.author_id:
@@ -124,8 +126,8 @@ def post_delete(request, pk):
         messages.info(request, 'You must be logged in to see that page')
         return redirect('login')
 
-def users_info(request):
 
+def users_info(request):
     user = request.user
     if user.is_authenticated and user.is_staff:
         users_id = User.objects.filter().values_list('id', flat=True)
@@ -142,35 +144,35 @@ def users_info(request):
         messages.info(request, 'You don\'t have necessary permissions to see this page')
         return redirect('login')
 
-def json_response(request):
 
+def json_response(request):
     this_hour = timezone.now().replace(minute=0, second=0, microsecond=0)
     one_hour_later = this_hour + timedelta(hours=1)
     posts = Post.objects.filter(published_date__range=(this_hour, one_hour_later))
 
     response = []
     for post in posts:
-
         response.append(
             {
                 'author': f"{User.objects.get(id=post.author_id).first_name} {User.objects.get(id=post.author_id).last_name}",
-                'datetime' : post.published_date,
-                'title' : post.title,
-                'description' : post.description,
-                'content' : post.content,
-                'hash' : post.hash,
-                'tx_id' : post.tx_id,
+                'datetime': post.published_date,
+                'title': post.title,
+                'description': post.description,
+                'content': post.content,
+                'hash': post.hash,
+                'txId': post.txId,
             })
 
     return JsonResponse(response, safe=False)
 
-def string_response(request, response): #url "string_value"
 
-    stringa = str(response)
+def string_response(request, response):  # url "string_value"
+
+    string = str(response)
     posts = Post.objects.all()
 
     count = 0
     for post in posts:
-
-        count += post.title.lower().split().count(stringa) + post.description.lower().split().count(stringa) + post.content.lower().split().count(stringa)
+        count += post.title.lower().split().count(string) + post.description.lower().split().count(
+            string) + post.content.lower().split().count(string)
     return HttpResponse(f"{count}")

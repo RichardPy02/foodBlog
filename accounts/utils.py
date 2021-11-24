@@ -17,7 +17,6 @@ def get_client_ip(request):
     return ip
 
 
-
 def ip_logger(extra, username):
     logger = logging.getLogger(__name__)
     logger = logging.LoggerAdapter(logger, extra)

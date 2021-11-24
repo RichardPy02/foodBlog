@@ -3,37 +3,37 @@
 
 {% block content %}
 
-        <!-- Page Header Start -->
-        <div class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>New Post</h2>
-                    </div>
-                    <div class="col-12">
-                        <a href="{% url 'index' %}">Home</a>
-                        <a href="{% url 'post_new' %}">New Post</a>
-                    </div>
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>New Post</h2>
+            </div>
+            <div class="col-12">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'post_new' %}">New Post</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+{% include 'accounts/messages.html' %}
+
+<!-- Form Start -->
+<div class="booking">
+    <div class="container">
+
+
+        <div class="booking-form">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_ul}}
+                <div>
+                    <button class="btn custom-btn" type="submit">Publish</button>
                 </div>
-            </div>
+            </form>
         </div>
-        <!-- Page Header End -->
-        {% include 'accounts/messages.html' %}
-
-        <!-- Form Start -->
-        <div class="booking">
-            <div class="container">
-
-
-                        <div class="booking-form">
-                            <form method="post" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                {{form.as_ul}}
-                                <div>
-                                    <button class="btn custom-btn" type="submit">Publish</button>
-                                </div>
-                            </form>
-                        </div>
-            </div>
-        </div>
+    </div>
+</div>
 {% endblock %}

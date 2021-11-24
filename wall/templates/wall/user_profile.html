@@ -3,71 +3,73 @@
 
 {% block content %}
 
-        <!-- Page Header Start -->
-        <div class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>{{user.first_name}}'s Personal Area</h2>
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>{{user.first_name}}'s Personal Area</h2>
+            </div>
+            <div class="col-12">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'posts' %}">Blog</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Blog Start -->
+<div class="blog">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Your Posts</h2>
+            <p>Add or Edit a Post</p><br>
+            <a class="btn custom-btn" href="{% url 'post_new' %}">Add a new post</a>
+        </div>
+
+        <div class="row">
+
+            {% for post in posts %}
+            <div class="col-md-6">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{{post.img.url}}" alt="Post image"/>
                     </div>
-                    <div class="col-12">
-                        <a href="{% url 'index' %}">Home</a>
-                        <a href="{% url 'posts' %}">Blog</a>
+                    <div class="blog-content">
+
+                        <h2 class="blog-title">{{ post.title }}</h2>
+
+                        <div class="blog-meta">
+                            <p><i class="far fa-user"></i>{{ post.author }}</p>
+                            <p><i class="far fa-calendar-alt"></i>{{ post.published_date }}</p>
+                            <p>({{ post.published_date|timesince }} ago) </p>
+
+                        </div>
+                        <div class="blog-text">
+                            <p>
+                                {{ post.description }}
+                            </p>
+                            <a class="btn custom-btn" href="{% url 'post_detail' post.pk %}">Read More</a>
+                            <a class="btn custom-btn" style="background:#3399ff; border: 2px solid #3399ff;"
+                               href="{% url 'post_edit' post.pk %}">Edit Post</a>
+                            <a class="btn custom-btn" style="background:#ff4b33; border: 2px solid #ff4b33;"
+                               href="{% url 'post_delete' post.pk %}">Delete Post</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Page Header End -->
-        
-        
-        <!-- Blog Start -->
-        <div class="blog">
+            {% empty %}
             <div class="container">
                 <div class="section-header text-center">
-                    <h2>Your Posts</h2>
-                    <p>Add or Edit a Post</p><br>
-                    <a class="btn custom-btn" href="{% url 'post_new' %}">Add a new post</a>
-                </div>
-
-                <div class="row">
-
-                    {% for post in posts %}
-                    <div class="col-md-6">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{{post.img.url}}" alt="Post image"/>
-                            </div>
-                            <div class="blog-content">
-
-                                <h2 class="blog-title">{{ post.title }}</h2>
-
-                                <div class="blog-meta">
-                                    <p><i class="far fa-user"></i>{{ post.author }}</p>
-                                    <p><i class="far fa-calendar-alt"></i>{{ post.published_date }}</p>
-                                    <p>({{ post.published_date|timesince }} ago) </p>
-
-                                </div>
-                                <div class="blog-text">
-                                    <p>
-                                         {{ post.description }}
-                                    </p>
-                                    <a class="btn custom-btn" href="{% url 'post_detail' post.pk %}">Read More</a>
-                                    <a class="btn custom-btn" style="background:#3399ff; border: 2px solid #3399ff;" href="{% url 'post_edit' post.pk %}">Edit Post</a>
-                                    <a class="btn custom-btn" style="background:#ff4b33; border: 2px solid #ff4b33;" href="{% url 'post_delete' post.pk %}">Delete Post</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% empty %}
-                        <div class="container">
-                            <div class="section-header text-center">
-                                <h4>There aren't available posts...</h4>
-                            </div>
-                        </div>
-                    {% endfor %}
+                    <h4>There aren't available posts...</h4>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        <!-- Blog End -->
+    </div>
+</div>
+<!-- Blog End -->
 
 {% endblock %}
