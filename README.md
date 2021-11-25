@@ -84,14 +84,11 @@ This project assumes you have already installed Python (at least 3.9.9 version) 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-3. In the main project folder, [create a new SQL database](https://www.sqlite.org/quickstart.html) and rename it as "db.sqlite3".
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 Once you set your environment, to run the server locally you just need to:
-* initialize database by executing this command in ypu prompt "python manage.py migrate"
+* initialize default database by executing this command in ypu prompt "python manage.py migrate"
 * run on your command prompt "python manage.py runserver" and go to http://127.0.0.1:8000/ on your browser. 
 
 I hope you enjoy it ;).
