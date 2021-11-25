@@ -90,8 +90,11 @@ This project assumes you have already installed Python (at least 3.9.9 version) 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Once you set your environment, to run the server locally you just need to run on your command prompt "python manage.py runserver" and go to http://127.0.0.1:8000/
-on your browser. I hope you enjoy it ;).
+Once you set your environment, to run the server locally you just need to:
+* initialize database by executing this command in ypu prompt "python manage.py migrate"
+* run on your command prompt "python manage.py runserver" and go to http://127.0.0.1:8000/ on your browser. 
+
+I hope you enjoy it ;).
 
 
 <!-- CONTRIBUTING -->
