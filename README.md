@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/RichardPy02/bacheca">
     <img src="assets/img/logo.png" alt="Logo" width="80" height="80">
   </a>
 
