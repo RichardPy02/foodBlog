@@ -4,7 +4,7 @@ from web3 import Web3
 def send_transaction(message):
     w3 = Web3(Web3.HTTPProvider('https://ropsten.infura.io/v3/9219391e394640a4b989b88a733ebd53'))
     address = '0xe9a099F38E270d7f1d101b1cB24EcC57F465B6fc'
-    private_key = '0xb2bda96fda35ff35cad5ccd2389539d2572ca96d40af48e2c9da5742a32215fa'
+    private_key = 'INSERT_YOUR_PRIVATE_KEY'
     nonce = w3.eth.getTransactionCount(address)
     gas_price = w3.eth.gasPrice
     value = w3.toWei(0, 'ether')
