@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/RichardPy02/bacheca">
+  <a href="https://github.com/RichardPy02/foodBlog">
     <img src="assets/img/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -11,7 +11,9 @@
   <p align="center">
     A Django project developing a food blog whose posts content are stored in blockchain (testnet)
     <br/>
+    <!--
     <a href="http://riccardo02.pythonanywhere.com/"><strong>Visit the website »</strong></a>
+    -->
   </p>
 </div>
 
@@ -75,7 +77,7 @@ This project assumes you have already installed Python (at least 3.9.9 version) 
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/RichardPy02/bacheca.git
+   git clone https://github.com/RichardPy02/foodBlog.git
    ```
 2. Install external packages using requirements.txt file
    ```sh
@@ -116,6 +118,6 @@ Don't forget to give the project a star! Thanks again!
 Riccardo, 
 Personal email address: riccardomagni00@gmail.com
 
-Project Link: [https://github.com/RichardPy02/bacheca](https://github.com/RichardPy02/bacheca/)
+Project Link: [https://github.com/RichardPy02/foodBlog](https://github.com/RichardPy02/foodBlog)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
